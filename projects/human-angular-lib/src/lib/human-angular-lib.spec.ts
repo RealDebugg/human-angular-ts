@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HumanAngularLib } from './human-angular-lib';
+import { HumanComponent } from './human-angular-lib';
 
-describe('HumanAngularLib', () => {
-  let component: HumanAngularLib;
-  let fixture: ComponentFixture<HumanAngularLib>;
+describe('HumanComponent', () => {
+  let component: HumanComponent;
+  let fixture: ComponentFixture<HumanComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HumanAngularLib]
-    })
-    .compileComponents();
+      imports: [HumanComponent],
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(HumanAngularLib);
+    fixture = TestBed.createComponent(HumanComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
