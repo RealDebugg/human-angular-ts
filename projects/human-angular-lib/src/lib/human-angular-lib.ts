@@ -10,6 +10,7 @@ import { Component, Renderer2, ViewChild } from '@angular/core';
 export class HumanComponent {
   @ViewChild('human') private humanDiv: any;
   private mousePositionFunction: Function | undefined;
+  private frameRequest: number | undefined;
   private mousePosition = { x: 0, y: 0 };
   private totalFrames = 4;
 
@@ -119,7 +120,8 @@ export class HumanComponent {
 
     let humanSprite;
     if (frameData.shouldMove) {
-      let currentFrame = (Math.floor(Date.now() / (1000 / 4)) % this.totalFrames) + 1;
+      let currentFrame =
+        (Math.floor(Date.now() / (1000 / this.totalFrames)) % this.totalFrames) + 1;
       humanSprite = frameData.clipset[currentFrame];
     } else {
       humanSprite = frameData.clipset[1];
@@ -131,7 +133,7 @@ export class HumanComponent {
       `${humanSprite.x} ${humanSprite.y}`
     );
 
-    requestAnimationFrame(() => {
+    this.frameRequest = requestAnimationFrame(() => {
       this.frame();
     });
   }
@@ -193,6 +195,10 @@ export class HumanComponent {
   ngOnDestroy() {
     if (this.mousePositionFunction) {
       this.mousePositionFunction();
+    }
+
+    if (this.frameRequest) {
+      cancelAnimationFrame(this.frameRequest);
     }
   }
 }
