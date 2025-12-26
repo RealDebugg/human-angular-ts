@@ -1,0 +1,10 @@
+.human {
+    pointer-events: none;
+    position: absolute;
+    image-rendering: pixelated;
+    z-index: 9999999 !important; /* Always on top */
+    width: 15px;
+    height: 19px;
+    scale: 1.9;
+    background-image: url("./assets/human.png");
+}

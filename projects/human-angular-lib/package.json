@@ -1,0 +1,18 @@
+{
+  "name": "human-angular-lib",
+  "version": "1.0.0",
+  "author": "RealDebugg",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RealDebugg/human-angular-ts"
+  },
+  "peerDependencies": {
+    "@angular/common": "^21.0.0",
+    "@angular/core": "^21.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
